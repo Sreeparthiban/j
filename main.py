@@ -23,7 +23,7 @@ def load_menu():
     menu_tabel.delete(*menu_tabel.get_children())
     menu_file_list = os.listdir("Menu")
     for file in menu_file_list:
-        f = open("Menu\\" + file , "r")
+        f = open("Menu/" + file , "r")
         category=""
         while True:
             line = f.readline()
@@ -96,7 +96,7 @@ def show_button_operation():
         tmsg.showinfo("Error", "Please select valid Choice")
     else:
         menu_tabel.delete(*menu_tabel.get_children())
-        f = open("Menu\\" + menu_category_dict[category] , "r")
+        f = open("Menu/" + menu_category_dict[category] , "r")
         while True:
             line = f.readline()
             if(line==""):
@@ -274,7 +274,7 @@ style_button.configure("TButton",font = ("arial",10,"bold"),
 title_frame = Frame(root, bd=8, bg="teal", relief=GROOVE)
 title_frame.pack(side=TOP, fill="x")
 
-title_label = Label(title_frame, text=" Zen+ Billing App" 
+title_label = Label(title_frame, text=" Zen+ Billing App" ,
                     font=("Comic sans ms", 30, "bold"),bg = "teal", fg="white", pady=5)
 title_label.pack()
 
