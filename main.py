@@ -305,7 +305,7 @@ customer_contact_entry.grid(row = 0, column=3,padx=50)
 
 #===============Menu===============
 menu_frame = Frame(root,bd=8, bg="grey", relief=GROOVE)
-menu_frame.place(x=0,y=145,height=650,width=680)
+menu_frame.place(x=0,y=145,height=650,width=400)
 
 menu_label = Label(menu_frame, text="Menu", 
                     font=("times new roman", 20, "bold"),bg = "teal", fg="white", pady=0)
@@ -321,11 +321,11 @@ combo_lable.grid(row=0,column=0,padx=10)
 menuCategory = StringVar()
 combo_menu = ttk.Combobox(menu_category_frame,values=menu_category,
                             textvariable=menuCategory)
-combo_menu.grid(row=0,column=1,padx=30)
+combo_menu.grid(row=0,column=1,padx=15)
 
 show_button = ttk.Button(menu_category_frame, text="Show",width=10,
                         command=show_button_operation)
-show_button.grid(row=0,column=2,padx=60)
+show_button.grid(row=0,column=2,padx=40)
 
 show_all_button = ttk.Button(menu_category_frame, text="Show All",
                         width=10,command=load_menu)
@@ -369,7 +369,7 @@ menu_tabel.bind("<ButtonRelease-1>",load_item_from_menu)
 
 #===============Item Frame=============
 item_frame = Frame(root,bd=8, bg="grey", relief=GROOVE)
-item_frame.place(x=680,y=145,height=250,width=830)
+item_frame.place(x=400,y=145,height=250,width=900)
 
 item_title_label = Label(item_frame, text="Item", 
                     font=("times new roman", 20, "bold"),bg = "teal", fg="white")
@@ -401,12 +401,12 @@ item_rate.grid(row=0,column=3,padx=10)
 
 item_quantity_label = Label(item_frame2, text="Quantity", 
                     font=("arial", 12, "bold"),bg = "lavender", fg="blue")
-item_quantity_label.grid(row=1,column=0,padx=30,pady=15)
+item_quantity_label.grid(row=0,column=4,padx=30,pady=15)
 
 itemQuantity = StringVar()
 itemQuantity.set("")
 item_quantity = Entry(item_frame2, font="arial 12",textvariable=itemQuantity, width=10)
-item_quantity.grid(row=1,column=1)
+item_quantity.grid(row=0,column=5)
 
 item_frame3 = Frame(item_frame, bg="lavender")
 item_frame3.pack(fill=X)
@@ -429,7 +429,7 @@ clear_button.grid(row=0,column=3,padx=40,pady=30)
 
 #==============Order Frame=====================
 order_frame = Frame(root,bd=8, bg="teal", relief=GROOVE)
-order_frame.place(x=680,y=335,height=450,width=830)
+order_frame.place(x=400,y=335,height=450,width=1100)
 
 order_title_label = Label(order_frame, text="Your Order", 
                     font=("times new roman", 20, "bold"),bg = "teal", fg="white")
@@ -447,13 +447,13 @@ order_tabel = ttk.Treeview(order_tabel_frame,
             yscrollcommand=scrollbar_order_y.set)
 
 order_tabel.heading("name",text="Name")
-order_tabel.heading("rate",text="Rate")
 order_tabel.heading("quantity",text="Quantity")
+order_tabel.heading("rate",text="Rate")
 order_tabel.heading("price",text="Price")
-order_tabel["displaycolumns"]=("name", "rate","quantity","price")
+order_tabel["displaycolumns"]=("name", "quantity","rate","price")
 order_tabel["show"] = "headings"
-order_tabel.column("rate",width=100,anchor='center', stretch=NO)
 order_tabel.column("quantity",width=100,anchor='center', stretch=NO)
+order_tabel.column("rate",width=100,anchor='center', stretch=NO)
 order_tabel.column("price",width=100,anchor='center', stretch=NO)
 
 order_tabel.bind("<ButtonRelease-1>",load_item_from_order)
@@ -474,8 +474,8 @@ total_price_label = Label(order_frame, text=" Total Price ",
 total_price_label.pack(side=LEFT,anchor=SW,padx=20,pady=10)
 
 totalPrice = StringVar()
-totalPrice.set("")
-total_price_entry = Entry(order_frame, font="arial 12",textvariable=totalPrice,state=DISABLED, 
+totalPrice.set("")    
+total_price_entry = Entry(order_frame, font="aria 12",textvariable=totalPrice,state=DISABLED, 
                             width=10)
 total_price_entry.pack(side=LEFT,anchor=SW,padx=0,pady=10)
 
